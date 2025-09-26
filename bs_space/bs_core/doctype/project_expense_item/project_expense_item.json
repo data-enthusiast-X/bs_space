@@ -1,0 +1,157 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-15 13:39:42.575409",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "column_break_yufk",
+  "task",
+  "column_break_nmsv",
+  "expense_date",
+  "section_break_xwoq",
+  "description",
+  "section_break_ubyu",
+  "payment_amount",
+  "quote_amount",
+  "payment_method",
+  "column_break_znmo",
+  "currency",
+  "payment_proof",
+  "approved_by_accounts",
+  "accounts_links_section",
+  "journal_entry",
+  "cost_center",
+  "column_break_nply",
+  "paid_from_cr",
+  "expense_account_dr"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_yufk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "task",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Task",
+   "options": "Task",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_nmsv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expense_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expense Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_xwoq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_break_ubyu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "payment_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Payment Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "quote_amount",
+   "fieldtype": "Currency",
+   "label": "Quote Amount"
+  },
+  {
+   "fieldname": "payment_method",
+   "fieldtype": "Link",
+   "label": "Payment Method",
+   "options": "Payment Method"
+  },
+  {
+   "fieldname": "column_break_znmo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "AED",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "payment_proof",
+   "fieldtype": "Attach",
+   "label": "Payment Proof"
+  },
+  {
+   "default": "0",
+   "fieldname": "approved_by_accounts",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Approved by Accounts?"
+  },
+  {
+   "fieldname": "accounts_links_section",
+   "fieldtype": "Section Break",
+   "label": "Accounts Links"
+  },
+  {
+   "fieldname": "journal_entry",
+   "fieldtype": "Link",
+   "label": "Journal Entry",
+   "options": "Journal Entry"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "column_break_nply",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "paid_from_cr",
+   "fieldtype": "Link",
+   "label": "Paid From (CR)",
+   "options": "Account"
+  },
+  {
+   "fieldname": "expense_account_dr",
+   "fieldtype": "Link",
+   "label": "Expense Account (DR)",
+   "options": "Account"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-15 13:50:31.649073",
+ "modified_by": "Administrator",
+ "module": "BS Core",
+ "name": "Project Expense Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

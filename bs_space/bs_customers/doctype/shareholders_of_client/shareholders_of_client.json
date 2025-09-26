@@ -1,0 +1,118 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-05 09:12:25.052466",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "shareholder_type",
+  "shareholder_doctype",
+  "shareholder",
+  "shareholding_pct",
+  "column_break_rbeh",
+  "is_shareholder",
+  "is_directormanager",
+  "is_ubo",
+  "is_signatory"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "shareholder_type",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Type",
+   "options": "Individual\nCorporate",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "shareholder_doctype",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Shareholder Doctype",
+   "options": "Linked Individual\nCustomer"
+  },
+  {
+   "columns": 2,
+   "fieldname": "shareholder",
+   "fieldtype": "Dynamic Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Shareholder",
+   "options": "shareholder_doctype",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "shareholding_pct",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Share %",
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_rbeh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "is_shareholder",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Shareholder"
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "is_directormanager",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Director/Manager"
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "is_ubo",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "UBO"
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "is_signatory",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Authorized Signatory"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-19 11:09:08.466602",
+ "modified_by": "Administrator",
+ "module": "BS Customers",
+ "name": "Shareholders of Client",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

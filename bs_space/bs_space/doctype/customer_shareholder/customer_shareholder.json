@@ -1,0 +1,68 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-05 09:12:25.052466",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "shareholder_type",
+  "shareholder_doctype",
+  "shareholder",
+  "shareholding_pct",
+  "column_break_rbeh",
+  "nationality"
+ ],
+ "fields": [
+  {
+   "fieldname": "shareholder_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Shareholder Type",
+   "options": "Individual\nCorporate",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shareholder_doctype",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Shareholder Doctype",
+   "options": "Contact\nCustomer"
+  },
+  {
+   "fieldname": "shareholder",
+   "fieldtype": "Dynamic Link",
+   "label": "Shareholder",
+   "options": "shareholder_doctype",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shareholding_pct",
+   "fieldtype": "Percent",
+   "label": "Shareholding %"
+  },
+  {
+   "fieldname": "column_break_rbeh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Data",
+   "label": "Nationality"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-05 10:54:10.416297",
+ "modified_by": "Administrator",
+ "module": "BS Space",
+ "name": "Customer Shareholder",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

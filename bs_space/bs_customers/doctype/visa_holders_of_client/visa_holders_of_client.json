@@ -1,0 +1,77 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-06 15:50:31.727712",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "visa_holder",
+  "visa_type",
+  "column_break_vors",
+  "visa_status",
+  "passport_number",
+  "emirates_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "column_break_vors",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "fieldname": "visa_status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Visa Status",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "passport_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Passport",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "visa_holder",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Visa Holder",
+   "options": "Linked Individual",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "visa_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Visa Type",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "fetch_from": "visa_holder.emirates_id_number",
+   "fieldname": "emirates_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Emirates ID"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-12 17:11:06.232437",
+ "modified_by": "Administrator",
+ "module": "BS Customers",
+ "name": "Visa Holders of Client",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

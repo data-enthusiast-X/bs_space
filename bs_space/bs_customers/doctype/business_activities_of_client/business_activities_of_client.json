@@ -1,0 +1,68 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-07-29 17:46:04.945663",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "business_activity",
+  "column_break_yfnc",
+  "activity_code",
+  "section_break_jgbz",
+  "description"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "business_activity",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Business Activity",
+   "options": "Business Activity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_yfnc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 2,
+   "fetch_from": "business_activity.activity_code",
+   "fieldname": "activity_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Activity Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_jgbz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 6,
+   "fetch_from": "business_activity.description",
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Description",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-12 17:17:15.548178",
+ "modified_by": "Administrator",
+ "module": "BS Customers",
+ "name": "Business Activities of Client",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

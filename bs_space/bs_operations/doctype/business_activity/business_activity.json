@@ -1,0 +1,154 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": ".######.",
+ "creation": "2025-07-28 16:53:58.145025",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "activity_code",
+  "activity_name",
+  "activity_group",
+  "column_break_vwqu",
+  "activity_master_number",
+  "legal_authority",
+  "enabled",
+  "section_break_gpep",
+  "description",
+  "section_break_jgrn",
+  "license_type",
+  "allowed_facility_type",
+  "column_break_xhxq",
+  "required_documents"
+ ],
+ "fields": [
+  {
+   "columns": 1,
+   "fieldname": "activity_code",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "ISIC Code"
+  },
+  {
+   "columns": 5,
+   "fieldname": "activity_name",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Activity Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "activity_group",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "label": "Activity Group"
+  },
+  {
+   "fieldname": "column_break_vwqu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "activity_master_number",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Activity Master Number"
+  },
+  {
+   "columns": 2,
+   "fieldname": "legal_authority",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Legal Authority",
+   "link_filters": "[[\"Supplier\",\"supplier_type\",\"=\",\"Legal Authority\"]]",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "columns": 1,
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled?"
+  },
+  {
+   "fieldname": "section_break_gpep",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 3,
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "in_filter": 1,
+   "in_standard_filter": 1,
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_break_jgrn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "license_type",
+   "fieldtype": "Data",
+   "label": "License Type"
+  },
+  {
+   "fieldname": "allowed_facility_type",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "label": "Allowed Facility Type"
+  },
+  {
+   "fieldname": "column_break_xhxq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "required_documents",
+   "fieldtype": "Small Text",
+   "in_filter": 1,
+   "label": "Required Documents or Approvals"
+  }
+ ],
+ "force_re_route_to_default_view": 1,
+ "grid_page_length": 50,
+ "hide_toolbar": 1,
+ "links": [],
+ "modified": "2025-09-25 14:54:01.429551",
+ "modified_by": "Administrator",
+ "module": "BS Operations",
+ "name": "Business Activity",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "activity_code, description",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "activity_name",
+ "track_changes": 1
+}

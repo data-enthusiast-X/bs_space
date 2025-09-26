@@ -1,0 +1,1005 @@
+/* ========================================
+        ROOT VARIABLES & GLOBAL SETTINGS
+======================================== */
+
+/* -----------------
+    LIGHT THEME
+------------------ */
+:root[data-theme="light"] {
+
+
+    --navy-blue:#14253e;
+    --accent-oragne:#cc8667;
+    --white-clr:#ffffff;
+    --black-clr: #111111;
+
+  /* Widgets */
+  --widget-links-bg: #f9f9f9;    /* light gray */
+  --widget-number-bg: #f9f9f9;  /* light gray */
+  --widget-border: var(--accent-oragne);      /* border (same for both themes) */
+
+
+  /* Navbar */
+    --navbar-color:var(--navy-blue);
+
+
+    --filling-clr:#00000000;
+    --strks-clr:var(--white-clr);
+
+    --dark-green-avatar-bg: var(--accent-oragne);    /* new background color */
+    --dark-green-avatar-color: var(--white-clr);
+
+  /* Navbar */
+    --notify-navbar:var(--navy-blue);
+
+      /* Button */
+    /* --onboard-light-button:#f7d9be; */
+    --light-button:#f5d0ae;
+    /* --light-button:#f5d0ae; */
+    --btn-primary: var(--accent-oragne);
+    --btn-primary-hover:var(--navy-blue);
+
+    /* Scrollbar*/
+    --scrollbar-light:#f5d0ae;
+    --scrollbar-dark:#cc8667;
+
+    /* Sidebar */
+    --sidebar-bg:var(--navy-blue);
+    --sidebar-text-color:var(--white-clr);
+    --sidebar-hover:var(--accent-oragne);
+
+}
+
+/* -----------------
+    DARK THEME
+------------------ */
+
+:root[data-theme="dark"] {
+  /* Sidebar */
+
+
+  /* Widgets */
+    --widget-links-bg: #2a2a2a;   
+    --widget-number-bg: #2a2a2a;
+    --widget-border: #cc8667;     
+
+  /* Buttons */
+    --light-button:#f8a053;
+    --btn-primary: #cc8667;
+    --btn-primary-hover: #14253e;
+
+
+}
+/* @media (min-width: 992px) { */
+
+/* ========================================
+        NAVIGATION BAR STYLING
+======================================== */
+
+.navbar{
+    background: var(--navbar-color) !important;
+}
+
+/* Breadcrumb links */
+#navbar-breadcrumbs li a {
+    color: var(--white-clr) !important;   /* white text */
+}
+
+/* Breadcrumb links on hover */
+#navbar-breadcrumbs li a:hover {
+    transition: all 0.5s !important;
+    color: var(--white-clr)!important;   /* light peach hover (optional) */
+}
+
+/* Disabled breadcrumb (like Accounting) */
+#navbar-breadcrumbs li.disabled a {
+    color: #dfdede !important;   /* softer gray for disabled */
+    cursor: default !important;
+}
+
+
+
+
+/* 🔔 Bell icon (notifications) */
+.navbar .dropdown-notifications button svg {
+    fill: var(--filling-clr) !important;
+    stroke: var(--strks-clr) !important;
+}
+
+/* ❓ Help dropdown button + text */
+.navbar .dropdown-help > button {
+    color: var(--white-clr) !important;
+}
+
+/* Help span text + its icon */
+.navbar .dropdown-help > button span,
+.navbar .dropdown-help > button span svg {
+    color: var(--white-clr) !important;
+    fill: var(--filling-clr) !important;
+    stroke: var(--strks-clr) !important;
+}
+
+.navbar .dropdown-help > button .avatar .avatar-medium{
+    background-color: var(--dark-green-avatar-bg);
+    color:var(--dark-green-avatar-color);
+}
+
+
+/* ----- Notification Navbar -----  */
+
+/* Header background */
+.dropdown-menu.notifications-list .notification-list-header {
+    display: flex;            /* likely already flex */
+    align-items: center;      /* vertically center items */
+    justify-content: space-between; /* push items left and right */
+    background-color: var(--notify-navbar) !important;
+    margin: 0 !important;
+    padding: 0 15px !important;      /* left and right padding */
+    box-sizing: border-box;          /* ensures padding is counted in width */
+}
+
+
+/* All tabs (Notifications, Events, What's New) */
+.dropdown-menu.notifications-list .notification-list-header .notification-item-tabs .notifications-category {
+    color: var(--white-clr) !important;
+    font-weight: normal !important;       /* normal weight */
+    border-bottom: none !important;       /* no underline */
+
+
+
+}
+
+/* Active tab */
+.dropdown-menu.notifications-list .notification-list-header .notification-item-tabs .notifications-category.active {
+    color: var(--white-clr) !important;
+    font-weight: 700 !important;          /* bold */
+    border-bottom: 2.5px solid var(--widget-border) !important; /*  underline */
+}
+
+
+.dropdown-menu.notifications-list .notification-list-header .header-items,
+.dropdown-menu.notifications-list .notification-list-header .header-actions {
+    margin: 0;
+    flex-shrink: 0; /* prevent shrinking inside flex */
+}
+
+
+.dropdown-menu.notifications-list .notification-list-header .header-actions  svg{
+    color: var(--white-clr) !important; 
+    fill: var(--filling-clr) !important;
+    stroke: var(--strks-clr) !important;
+}
+
+
+/* ========================================
+        WIDGET/CARD STYLING
+======================================== */
+
+.widget.links-widget-box {
+    background-color: var(--widget-links-bg) !important;
+    border: 1px solid var(--widget-border) !important;
+    color: var(--sidebar-font) !important;
+}
+
+.widget.number-widget-box {
+    background-color: var(--widget-number-bg) !important;
+    border: 2px solid var(--widget-border) !important;
+    color: var(--sidebar-font) !important;
+}
+
+.widget.dashboard-widget-box{
+    background-color: var(--widget-number-bg) !important;
+    border: 2px solid var(--widget-border) !important;
+    color:var(--sidebar-font) !important;
+
+}
+
+.widget.onboarding-widget-box .widget-body .onboarding-step.active,
+.widget.onboarding-widget-box .widget-body .onboarding-step:hover {
+    background: rgba(255, 206, 163, 0.308) !important; /* light peach with blur */
+    backdrop-filter: blur(10px) saturate(80%) !important; /* frosted glass effect */
+    -webkit-backdrop-filter: blur(10px) saturate(150%) !important; /* Safari */
+    border-radius: 8px; /* smooth edges */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ------some widgets border ---------- */
+
+.layout-main-section.frappe-card{
+    border:2px solid var(--widget-border);
+}
+.layout-main-section {
+    border:2px solid var(--widget-border);
+    border-radius: 12px;
+}
+/* Top and bottom borders for Accounting Dimensions section (by class only) */
+.row.form-section.card-section.visible-section{
+    border-bottom: 0.25px solid rgba(255, 206, 163, 0.61);
+
+}
+.page-form.flex{
+    border-bottom:1px solid var(--widget-border);
+}
+
+.list-paging-area.level{
+    border-top:1px solid var(--widget-border);
+
+}
+
+
+.form-tabs-list .form-tabs {
+    border-bottom:1px solid var(--widget-border);
+    box-sizing: border-box
+}
+.form-tabs-list .form-tabs .nav-item .nav-link.active{
+    border-bottom: 2px solid #cc8667;
+}
+
+
+
+/* ========================================
+        SCROLLBAR STYLING
+======================================== */
+
+
+
+/* 2. Grid heading row - navy blue background */
+/* .grid-heading-row .grid-row {
+    background-color: #14253e !important; 
+    color: #fff !important;               
+    border-top: none !important;
+
+}  */
+
+
+
+
+
+.grid-body {
+    border: 1px solid #14253e !important;           
+} 
+
+
+
+
+/* Make sure header labels (span, .ellipsis, etc.) also show white */
+.grid-heading-row .grid-row span,
+.grid-heading-row .grid-row .static-area,
+.grid-heading-row .icon.icon-sm use {
+    color: #fff !important;
+    fill: var(--filling-clr) !important;
+    stroke: var(--strks-clr) !important;
+    filter: brightness(0) invert(1) drop-shadow(0 0 0 #ffffff) !important;
+
+} 
+
+
+.grid-heading-row {
+    border-top-right-radius:none !important;
+    border-top-left-radius:none !important;
+    background-color: #14253e;
+    color: #fff !important; 
+    height: auto !important;
+}
+.grid-row{
+    border-bottom: 1px solid #14253e;
+}
+
+
+
+
+
+/* odd rows(1,3,5,....) */
+/* grid-row:nth-child(odd) {
+    background-color: #2471e4 !important; 
+} */
+
+/* Even rows (2,4,6,...) */
+/* .grid-row:nth-child(even) {
+    background-color: #5a9cff !important;  
+} */
+
+
+/* [data-page-route="Workspaces"] .layout-main .layout-side-section{
+    scrollbar-color: var(--scrollbar-dark) transparent !important;
+}
+[data-page-route="Workspaces"] .layout-main .layout-main-section-wrapper {
+
+    scrollbar-color: var(--scrollbar-light) transparent !important; 
+
+}[data-page-route="Workspaces"] .layout-main .layout-side-section :hover,
+[data-page-route="Workspaces"] .layout-main .layout-main-section-wrapper :hover {
+
+    scrollbar-color: var(--scrollbar-dark) transparent !important;
+} */
+
+
+
+
+
+/* =========== SVG =========== */
+
+/* 🎯 Make specific icons white */
+button.btn-default.btn-sm.ellipsis > span.hidden-xs > svg.icon.icon-sm use[href="#icon-list"],
+button.btn-default.btn-sm.ellipsis > span.hidden-xs > svg.icon.icon-xs use[href="#icon-select"],
+div.menu-btn-group button.btn-default.icon-btn svg.icon.icon-sm use[href="#icon-dot-horizontal"],
+button.btn-secondary.btn-default.btn-sm > svg.icon.icon-sm use[href="#icon-change"],
+button.btn svg.icon.icon-sm use[href="#icon-printer"] {
+    filter: brightness(0) invert(1);
+}
+
+
+
+
+/* ========================================
+        BUTTON STYLING
+======================================== */
+
+
+/* Primary buttons (Save, Add User, etc.) */
+button.primary-action[data-label],
+button.btn.btn-primary,
+button[data-label="Change User"],
+button[data-label="New"],
+button[data-label="Edit"],
+div.btn.btn-sm.btn-secondary.small,
+.msg-box.no-border button.btn.btn-default.btn-sm.btn-new-doc.hidden-xs
+/* Icon buttons (Prev, Next, Print, Reload) */
+{ 
+    background-color: var(--btn-primary) !important;
+    color: var(--white-clr) !important;
+    border: none !important;
+    fill: var(--filling-clr) !important;
+    stroke: var(--strks-clr) !important;
+    
+}
+
+
+/* Hover effect */
+button.primary-action[data-label]:hover,
+button.btn.btn-primary:hover,
+button[data-label="Change User"]:hover,
+button[data-label="New"]:hover,
+button[data-label="Edit"]:hover,
+div.btn.btn-sm.btn-secondary.small:hover,
+.layout-side-section > .form-sidebar button.icon-btn:hover,
+.msg-box.no-border button.btn.btn-default.btn-sm.btn-new-doc.hidden-xs:hover 
+{
+    background-color: var(--btn-primary-hover) !important;
+    color: var(--white-clr) !important;
+    fill: var(--filling-clr) !important;
+    stroke: var(--strks-clr) !important;
+}
+
+
+
+/* Focus/active states (for accessibility) */
+button:focus,
+button:active {
+    outline: 2px solid var(--btn-primary-hover);
+    outline-offset: 2px;
+}
+
+
+.onboarding-step-footer button.btn.btn-default.btn-sm,
+.widget-control .btn.btn-sm.btn-secondary.small ,
+.workspace-footer .btn-new-workspace,
+.workspace-footer .btn-edit-workspace ,
+.workspace-footer .btn-new-workspace svg,
+.workspace-footer .btn-edit-workspace svg ,
+.page-actions .custom-btn-group .btn.btn-sm.ellipsis ,
+.page-actions .custom-btn-group .btn.btn-sm.ellipsis svg ,
+.page-actions button.icon-btn,
+.custom-actions button.icon-btn,
+.standard-actions button.icon-btn,
+.menu-btn-group > button.icon-btn,
+.page-actions .menu-btn-group .btn.icon-btn ,
+.page-actions .menu-btn-group .btn.icon-btn svg ,
+.page-actions .btn.btn-primary.primary-action,
+.page-actions .btn.btn-primary.primary-action svg ,
+.standard-actions button[data-label="Change User"],
+.standard-actions .icon,
+.page-actions .custom-actions .inner-group-button button.btn.ellipsis,
+.page-actions .custom-actions .inner-group-button button.btn.ellipsis svg,
+.page-actions .custom-actions button[data-label="Create%20User%20Email"] ,
+.page-actions .standard-actions button.icon-btn,
+.page-actions .standard-actions button.icon-btn svg,
+.page-actions .standard-actions .menu-btn-group .btn.icon-btn,
+.page-actions .standard-actions .menu-btn-group .btn.icon-btn svg,
+.page-actions .btn.btn-primary.primary-action,
+.timeline-content .action-btn,
+.timeline-content .action-btn svg,
+button.btn.btn-default.btn-sm.ellipsis svg.icon-sm,
+.menu-btn-group > button.icon-btn .menu-btn-group-label svg.icon-sm,
+.msg-box .btn-new-doc,
+.custom-actions .btn.btn-default.btn-sm.ellipsis ,
+.custom-actions .btn.btn-default.btn-sm.ellipsis svg use,
+.form-clickable-section.grid-footer .btn,
+.custom-actions button[data-label="Duplicate"],
+.flex.col.page-actions.justify-content-end button ,
+.flex.col.page-actions.justify-content-end button svg
+{
+    background-color: var(--btn-primary) !important;
+    color: var(--white-clr) !important;
+    border: none !important;
+    fill: var(--filling-clr) !important;
+    stroke: var(--strks-clr) !important;
+    
+    
+}
+
+.widget-control .btn.btn-sm.btn-secondary.small:hover,
+.onboarding-step-footer button.btn.btn-default.btn-sm:hover,
+.workspace-footer .btn-new-workspace:hover,
+.workspace-footer .btn-edit-workspace:hover ,
+.workspace-footer .btn-new-workspace:hover svg,
+.workspace-footer .btn-edit-workspace:hover svg ,
+.page-actions .custom-btn-group .btn.btn-sm.ellipsis:hover svg,
+button.btn.btn-default.btn-sm.ellipsis:hover,
+button.btn.btn-default.btn-sm.ellipsis:hover svg ,
+.page-actions button.icon-btn:hover,
+.custom-actions button.icon-btn:hover,
+.standard-actions button.icon-btn:hover,
+.menu-btn-group > button.icon-btn:hover,
+.page-actions .menu-btn-group .btn.icon-btn:hover,
+.page-actions .menu-btn-group .btn.icon-btn:hover svg ,
+.page-actions .btn.btn-primary.primary-action:hover,
+.page-actions .btn.btn-primary.primary-action:hover svg ,
+.standard-actions button[data-label="Change User"]:hover,
+.standard-actions .btn:hover .icon,
+.page-actions .custom-actions .inner-group-button button.btn.ellipsis:hover,
+.page-actions .custom-actions .inner-group-button button.btn.ellipsis:hover svg,
+.page-actions .custom-actions button[data-label="Create%20User%20Email"]:hover ,
+.page-actions .standard-actions button.icon-btn:hover,
+.page-actions .standard-actions button.icon-btn:hover svg,
+.page-actions .standard-actions .menu-btn-group .btn.icon-btn:hover,
+.page-actions .standard-actions .menu-btn-group .btn.icon-btn:hover svg,
+.page-actions .btn.btn-primary.primary-action:hover,
+.timeline-content .action-btn:hover,
+.timeline-content .action-btn:hover svg,
+button.btn.btn-default.btn-sm.ellipsis:hover svg.icon-sm,
+.menu-btn-group > button.icon-btn:hover .menu-btn-group-label svg.icon-sm,  
+.msg-box .btn-new-doc:hover,
+.custom-actions .btn.btn-default.btn-sm.ellipsis:hover ,
+.custom-actions .btn.btn-default.btn-sm.ellipsis:hover svg use,
+.form-clickable-section.grid-footer .btn:hover,
+.custom-actions button[data-label="Duplicate"]:hover,
+.flex.col.page-actions.justify-content-end button:hover,
+.flex.col.page-actions.justify-content-end button:hover svg
+
+{
+    background-color: var(--btn-primary-hover) !important;
+    color: var(--white-clr) !important;
+    fill: var(--filling-clr) !important;
+    stroke: var(--strks-clr) !important;
+    transition: fill 0.3s ease;
+}  
+
+
+
+
+
+
+.custom-actions .btn.btn-default.btn-sm.ellipsis svg use {
+    filter: brightness(0) invert(1) drop-shadow(0 0 0 #ffffff); /* white icon effect */
+}
+
+/* -----------------
+   SVG Icons (inside buttons)
+------------------ */
+.page-actions button.icon-btn svg,
+.custom-actions button.icon-btn svg,
+.standard-actions button.icon-btn svg,
+.menu-btn-group > button.icon-btn svg,
+.page-actions .btn.btn-primary.primary-action svg,
+.timeline-content .action-btn svg {
+    fill: var(--filling-clr) !important;
+    stroke: var(--strks-clr) !important;
+}
+
+.page-actions button.icon-btn:hover svg,
+.custom-actions button.icon-btn:hover svg,
+.standard-actions button.icon-btn:hover svg,
+.menu-btn-group > button.icon-btn:hover svg,
+.page-actions .btn.btn-primary.primary-action:hover svg,
+.timeline-content .action-btn:hover svg {
+    fill: var(--filling-clr) !important;
+    stroke: var(--strks-clr) !important;
+    transition: fill 0.3s ease;
+} 
+
+
+/* ========================================
+        SIDEBAR STYLING
+======================================== */
+
+.body-sidebar,
+.col-lg-2.layout-side-section {
+    background-color: var(--sidebar-bg) !important;
+    color: var(--sidebar-text-color) !important;
+    border-radius: 12px;
+}
+
+/* ================================
+   Sidebar Items & Text
+   ================================ */
+.standard-sidebar-item,
+.item-anchor,
+.sidebar-item-label,
+.sidebar-item-icon,
+.sidebar-item-icon svg,
+.sidebar-item-control button,
+.sidebar-item-container .dropdown-item-label,
+.sidebar-item-container .dropdown-item-icon svg {
+    fill: var(--filling-clr) !important;
+    stroke: var(--strks-clr) !important;
+    color: var(--white-clr) !important;
+}
+
+/* Default SVG icon colors */
+.sidebar-item-icon svg,
+.sidebar-item-container .dropdown-item-icon svg,
+.standard-sidebar-label svg {
+    fill: var(--filling-clr) !important;
+    stroke: var(--strks-clr) !important;
+}
+
+/* ================================
+   Section Toggle Buttons
+   ================================ */
+.standard-sidebar-label {
+    color: var(--sidebar-text-color) !important;
+    
+}
+
+.standard-sidebar-label .section-title {
+    color: var(--sidebar-text-color) !important;
+}
+/* ================================
+   Hover & Active State (Peach Glass Blur)
+   ================================ */
+.sidebar-item-container .sidebar-item:hover,
+.sidebar-item-container .dropdown-item:hover,
+.standard-sidebar-item:hover,
+.standard-sidebar-label:hover,
+.sidebar-item-container .sidebar-item.active,
+.standard-sidebar-item.active {
+    background: rgba(255, 255, 255, 0.1) !important; /* light transparent overlay */
+    backdrop-filter: blur(10px) saturate(180%) !important; /* frosted glass effect */
+    -webkit-backdrop-filter: blur(10px) saturate(180%) !important; /* Safari */
+    border-radius: 8px; /* smooth edges */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Label/Text color on hover or active */
+.sidebar-item-container .sidebar-item:hover .sidebar-item-label,
+.sidebar-item-container .dropdown-item:hover .dropdown-item-label,
+.standard-sidebar-item:hover .sidebar-item-label,
+.standard-sidebar-item:hover .item-anchor,
+.standard-sidebar-label:hover .section-title,
+.sidebar-item-container .sidebar-item.active .sidebar-item-label,
+.standard-sidebar-item.active .sidebar-item-label {
+    color: var(--white-clr) !important;
+    font-weight: 600;
+}
+
+/* Icon styling */
+.sidebar-item-container .sidebar-item:hover svg,
+.sidebar-item-container .dropdown-item:hover svg,
+.standard-sidebar-item:hover .sidebar-item-icon svg,
+.standard-sidebar-label:hover svg,
+.sidebar-item-container .sidebar-item.active svg,
+.standard-sidebar-item.active .sidebar-item-icon svg {
+    fill: var(--white-clr) !important;
+    stroke:var(--white-clr) !important;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.sidebar-item-icon svg { color: var(--white-clr); }
+
+
+
+
+/* Sidebar control buttons */
+.standard-sidebar-item:hover .sidebar-item-control button,
+.sidebar-item-container .sidebar-item:hover .sidebar-item-control button,
+.standard-sidebar-item.active .sidebar-item-control button,
+.sidebar-item-container .sidebar-item.active .sidebar-item-control button {
+    background-color: transparent !important;
+    color: var(--white-clr) !important;
+}
+
+/* ================================
+   Selected / Active State (#cc8667 bg, white text/icons)
+   ================================ */
+.sidebar-item-container .sidebar-item.selected,
+.sidebar-item-container .dropdown-item.selected,
+.standard-sidebar-item.selected,
+.standard-sidebar-label.selected {
+    background-color: var(--sidebar-hover) !important; /* dark orange bg */
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar-item-container .sidebar-item.selected .sidebar-item-label,
+.sidebar-item-container .dropdown-item.selected .dropdown-item-label,
+.standard-sidebar-item.selected .sidebar-item-label,
+.standard-sidebar-item.selected .item-anchor,
+.standard-sidebar-label.selected .section-title {
+    color:var(--white-clr) !important; /* white text */
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar-item-container .sidebar-item.selected svg,
+.sidebar-item-container .dropdown-item.selected svg,
+.standard-sidebar-item.selected .sidebar-item-icon svg,
+.standard-sidebar-label.selected svg {
+    fill: var(--white-clr) !important;   /* white icons */
+    stroke: var(--white-clr) !important; /* white stroke */
+    stroke-width: 3px solid black;
+    transition: all 0.3s ease-in-out;
+
+}
+
+/* Sidebar item control buttons on selected */
+.standard-sidebar-item.selected .sidebar-item-control button,
+.sidebar-item-container .sidebar-item.selected .sidebar-item-control button {
+    background-color: transparent !important;
+    color: var(--white-clr) !important;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* All sidebar icons white */
+.sidebar-item-icon svg,
+.sidebar-item-control svg,
+.dropdown-item-icon svg {
+    fill: #00000000 !important;   
+    stroke: var(--white-clr) !important; 
+
+}
+
+
+
+/* ==================================== */
+
+/* Sidebar text color */
+.list-sidebar,
+.list-sidebar a,
+.list-sidebar .sidebar-label,
+.list-sidebar .list-link a,
+.list-sidebar .sidebar-action a,
+.list-sidebar .menu-btn-group-label,
+.list-sidebar .ellipsis,
+.list-sidebar .list-sidebar-button,
+.list-sidebar .list-group-by-fields span,
+.list-sidebar .list-tags span {
+    color: var(--white-clr) !important; /* white text */
+}
+
+/* Optional: for dropdown items inside sidebar */
+.list-sidebar .dropdown-menu a {
+    color:var(--white-clr) !important;
+}
+
+/* =========Sidebar SVG White COlor ======== */
+.list-sidebar svg use {
+    fill: var(--filling-clr);
+    stroke:var(--strks-clr);
+    filter: brightness(0) invert(1) drop-shadow(0 0 0 #ffffff);
+}
+
+
+/* Specific sidebar text (dark grey) */
+/* Dark grey for specific sidebar text */
+.list-sidebar .ellipsis,
+.list-sidebar .list-tags span,
+.list-sidebar .group-by-field .ellipsis,
+.list-sidebar .input-with-feedback.form-control::placeholder {
+    color: #555555 !important; /* dark grey */
+}
+
+/* Optional: if you want the input text typed by user also dark grey */
+.list-sidebar .input-with-feedback.form-control {
+    color: #555555 !important;
+}
+
+/* If you want the dropdown icon next to it to stay white */
+.list-sidebar .ellipsis + span svg,
+.list-sidebar .list-tags span + svg {
+    fill:var(--filling-clr) !important; /* keep SVG icon white */
+    stroke: var(--strks-clr);
+
+}
+
+
+/* White color for help text and checkbox label in sidebar/input area */
+.list-sidebar .help-box,
+.list-sidebar .label-area {
+    color: var(--white-clr) !important; /* white */
+}
+
+
+/* Target only this specific sidebar */
+.col-lg-2.layout-side-section > .list-sidebar.overlay-sidebar {
+    margin-top: 15px; /* adjust value as needed */
+}
+
+
+/* Only for this specific sidebar */
+.col-lg-2.layout-side-section > .form-sidebar.overlay-sidebar {
+    margin-top: 15px; /* adjust top spacing */
+    color:var(--white-clr);    /* default text color inside sidebar */
+}
+.col-lg-2.layout-side-section.print-preview-sidebar{
+    padding-top: 15px;
+}
+
+.col-lg-2.layout-side-section.print-preview-sidebar label.control-label {
+    color: #ffffff !important;
+}
+
+/* Ensure links, spans, and buttons inside also inherit white */
+.col-lg-2.layout-side-section > .form-sidebar.overlay-sidebar a,
+.col-lg-2.layout-side-section > .form-sidebar.overlay-sidebar span,
+.col-lg-2.layout-side-section > .form-sidebar.overlay-sidebar button,
+.col-lg-2.layout-side-section > .form-sidebar.overlay-sidebar input,
+.col-lg-2.layout-side-section > .form-sidebar.overlay-sidebar label {
+    color: var(--white-clr)!important;
+}
+
+/* Optional: placeholder text in inputs */
+.col-lg-2.layout-side-section > .form-sidebar.overlay-sidebar input::placeholder {
+    color: #cccccc;  /* light gray placeholder */
+}
+
+
+/* Only for the like icon inside your specific sidebar */
+.col-lg-2.layout-side-section > .form-sidebar.overlay-sidebar use.like-icon,
+.col-lg-2.layout-side-section > .form-sidebar.overlay-sidebar .like-icon {
+    fill: var(--filling-clr);
+    stroke: var(--strks-clr) !important;        /* sets stroke to white */
+    --icon-stroke: transparent !important;  /* overrides internal stroke variable */
+    cursor: pointer;                   /* makes it pointer on hover */
+}
+
+
+/* Target only SVGs inside your specific sidebar */
+.form-sidebar.overlay-sidebar svg.es-icon {
+    stroke:var(--strks-clr) !important;   /* outline color */
+    fill: var(--filling-clr) !important;     /* fill color inside the icon */
+    cursor: pointer;              /* optional: pointer on hover */
+}
+
+/* Target the <use> inside those SVGs too */
+.form-sidebar.overlay-sidebar svg.es-icon use {
+    stroke: var(--strks-clr) !important;
+    fill:var(--filling-clr) !important;
+}
+
+
+
+/* Target the modified-by and created-by inside the specific sidebar */
+.form-sidebar.overlay-sidebar ul.sidebar-menu.text-muted li.modified-by,
+.form-sidebar.overlay-sidebar ul.sidebar-menu.text-muted li.created-by {
+    color: var(--white-clr) !important;  /* text in white */
+}
+
+/* Optional: also make the timestamp inside white */
+.form-sidebar.overlay-sidebar ul.sidebar-menu.text-muted li.modified-by span.frappe-timestamp,
+.form-sidebar.overlay-sidebar ul.sidebar-menu.text-muted li.created-by span.frappe-timestamp {
+    color: var(--white-clr) !important;
+}
+
+
+/* Target the <use> for the printer icon inside that button */
+button.icon-btn .icon.icon-sm use[href="#icon-printer"],
+button.icon-btn .icon.icon-sm use[href="#icon-dot-horizontal"],
+.custom-actions .btn .icon.icon-sm use[href="#icon-list"],
+.menu-btn-group > button .icon.icon-sm use[href="#icon-dot-horizontal"] {
+    stroke: var(--strks-clr) !important;   /* sets stroke color */
+    fill: var(--filling-clr) !important;     /* sets fill color */
+    cursor: pointer;              /* optional pointer on hover */
+}
+
+
+.sidebar-menu .indicator-pill.yellow {
+    background-color:var(--accent-oragne); /* peach background */
+    color:var(--white-clr); /* white text */
+}
+
+
+
+/* ================ Profile Change button =================== */
+
+/* The dropdown menu itself */
+.sidebar-image-section .dropdown-menu {
+    background-color: var(--sidebar-bg) !important;
+    border: none !important;
+    border-radius: 6px; /* optional, makes it smoother */
+    backdrop-filter: blur(6px); /* adds blur */
+}
+
+/* Text inside Upload / Remove */
+.sidebar-image-section .dropdown-menu .dropdown-item {
+    color: var(--sidebar-text-color) !important;
+    font-weight: 500;
+}
+
+/* Hover effect */
+.sidebar-image-section .dropdown-menu .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: var(--sidebar-hover) !important;
+}
+
+/* Target all remove-btn SVGs inside .form-attachments */
+.form-attachments .remove-btn svg,
+.form-attachments .remove-btn svg use {
+    filter: brightness(0) invert(1);
+}
+/* Optional: hover effect */
+.form-attachments .remove-btn:hover svg,
+.form-attachments .remove-btn:hover svg use {
+    filter: brightness(0) invert(1); /* same white as default */
+}
+
+
+
+/* /* Glassmorphic effect for attachment buttons  On hover / focus / active */
+/* ul.sidebar-menu.form-attachments .attachment-row .data-pill.btn:hover,
+ul.sidebar-menu.form-attachments .attachment-row .data-pill.btn:focus,
+ul.sidebar-menu.form-attachments .attachment-row .data-pill.btn:active,
+ul.sidebar-menu.form-attachments .attachment-row .data-pill.btn:focus-visible {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+} */
+
+
+
+ul.sidebar-menu.form-attachments .attachment-row .data-pill.btn:hover,
+ul.sidebar-menu.form-attachments .attachment-row .data-pill.btn:focus,
+ul.sidebar-menu.form-attachments .attachment-row .data-pill.btn:active,
+ul.sidebar-menu.form-attachments .attachment-row .data-pill.btn:focus-visible {
+    background: rgba(253, 237, 223, 0.2) !important; /* light peach with blur */
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+}
+
+ul.sidebar-menu.form-attachments .attachment-row .pill-label a:hover {       /* light blue on hover */
+    text-decoration: none !important;       /* subtle underline */
+}
+
+
+
+
+/* ================ Tag Input Box =================== */
+
+
+/* Target the tags input inside the form-tags menu */
+.sidebar-menu.form-tags .tags-input.form-control {
+    background-color: var(--sidebar-bg) !important; /* navy blue */
+    color: var(--sidebar-text-color) !important;            /* white text */
+    border: 1px solid #0f1b2d !important; /* darker border for contrast */
+    border-radius: 6px;                   /* optional rounded edges */
+    padding: 6px 10px;
+}
+
+/* Placeholder text in white (lighter opacity) */
+.sidebar-menu.form-tags .tags-input.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* On focus: slightly lighter navy */
+.sidebar-menu.form-tags .tags-input.form-control:focus {
+    background-color: #1c3458 !important;
+    outline: none !important;
+    box-shadow: 0 0 6px rgba(20, 37, 62, 0.6);
+}
+
+/* ================ Tag Input button =================== */
+/* Style for that specific data-pill button */
+/* Style the pill button */
+.form-tag-row .data-pill.btn {
+    background: rgba(255, 218, 185, 0.2) !important; /* light peach with blur */
+    border: 1px solid rgba(255, 218, 185, 0.4);
+    color: var(--sidebar-text-color) !important; /* white text */
+    backdrop-filter: blur(6px); /* blur effect */
+}
+
+/* Style the pill label text */
+.form-tag-row .data-pill .pill-label {
+    color: var(--sidebar-text-color) !important;
+}
+
+/* Remove-btn SVGs: white stroke, visually transparent fill */
+.form-tags .remove-btn svg {
+    filter: brightness(0) invert(1); /* black → white */
+}
+
+/* Hover: keep same color (white) */
+.form-tags .remove-btn:hover svg {
+    filter: brightness(0) invert(1); /* same white as default */
+
+}
+
+
+
+
+/* ====================== profile sidebar ========================== */
+
+/* Only for the user profile sidebar in the left layout */
+.col-lg-2.layout-side-section > .user-profile-sidebar {
+    margin-top: 15px;    /* adjust top spacing */
+    color: var(--sidebar-text-color);      /* default text color inside this sidebar */
+}
+
+/* Optional: make all stat labels white */
+.col-lg-2.layout-side-section > .user-profile-sidebar .stat-label,
+.col-lg-2.layout-side-section > .user-profile-sidebar .stat-value {
+    color:var(--sidebar-text-color);
+}
+
+    /* Target the profile-details container */
+.profile-details h5,
+.profile-details a {
+    color: var(--sidebar-text-color); /* white */
+}
+
+
+
+/* ====================== Options sidebar ========================== */
+
+/* ================= Sidebar Glassmorphism Styles =================
+   Buttons, dropdowns, input fields with light peach background,
+   blur effect, border, text, and glow on click/focus
+================================================================== */
+
+/* Buttons inside filter-section and generic dropdown buttons */
+.list-sidebar .filter-section a.btn.list-sidebar-button,
+.list-sidebar a.btn.list-sidebar-button[href="#"] {
+    background: rgba(252, 203, 161, 0.2) !important; /* light peach with blur */
+    border: 1px solid rgba(255, 210, 171, 0.4);
+    color: var(--sidebar-text-color) !important; /* white text */
+    backdrop-filter: blur(6px); /* glassmorphism blur effect */
+    transition: all 0.2s ease; /* smooth hover/focus effect */
+}
+
+/* Text inside buttons and input placeholder */
+.list-sidebar .filter-section a.btn.list-sidebar-button .ellipsis,
+.list-sidebar a.btn.list-sidebar-button[href="#"] .ellipsis,
+.list-sidebar a.btn.list-sidebar-button span,
+.list-sidebar .save-filter-section input[placeholder="Filter Name"]::placeholder {
+    color: var(--sidebar-text-color) !important; /* white/contrasting text */
+    opacity: 1; /* ensure full visibility */
+}
+
+/* Filter Name input field */
+.list-sidebar .save-filter-section input[placeholder="Filter Name"] {
+    background: rgba(252, 203, 161, 0.2) !important;
+    border: 1px solid rgba(255, 210, 171, 0.4);
+    color: var(--sidebar-text-color) !important;
+    backdrop-filter: blur(6px);
+    transition: all 0.2s ease; /* smooth focus effect */
+}
+
+/* ================= Focus / Click Glow Effect ================== */
+/* Apply on buttons and input when focused or clicked */
+.list-sidebar .filter-section a.btn.list-sidebar-button:focus,
+.list-sidebar .filter-section a.btn.list-sidebar-button:active,
+.list-sidebar a.btn.list-sidebar-button[href="#"]:focus,
+.list-sidebar a.btn.list-sidebar-button[href="#"]:active,
+.list-sidebar .save-filter-section input[placeholder="Filter Name"]:focus {
+    border: 2px solid #cc8667; /* thicker border on click/focus */
+    outline: none; /* remove default focus outline */
+}

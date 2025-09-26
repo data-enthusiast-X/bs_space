@@ -1,0 +1,460 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-08-06 09:44:59.159638",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "personal_details_section",
+  "first_name",
+  "last_name",
+  "country_of_birth",
+  "nationality",
+  "responsible_person",
+  "date_of_birth",
+  "column_break_gohy",
+  "naming_series",
+  "full_name",
+  "enabled",
+  "has_visa",
+  "visa_type",
+  "status",
+  "relation",
+  "contact_details_section",
+  "primary_address",
+  "secondary_address",
+  "column_break_nirp",
+  "email",
+  "phone",
+  "links_section",
+  "column_break_gpqt",
+  "user_id",
+  "column_break_qqsw",
+  "parent_type",
+  "visa_parent",
+  "section_break_xcnc",
+  "dependents",
+  "owned_companies",
+  "documents_tab",
+  "need_expiry_notifications",
+  "section_break_htbd",
+  "passport_number",
+  "passport_issue_date",
+  "passport_expiry_date",
+  "passport_document",
+  "column_break_rdyy",
+  "emirates_id_number",
+  "emirates_id_issue_date",
+  "emirates_id_expiry_date",
+  "emirates_id_document",
+  "column_break_qmgl",
+  "visa_issue_date",
+  "visa_expiry_date",
+  "residency_visa_document",
+  "employee_section",
+  "designation",
+  "labour_contract_expiry",
+  "labour_contract_document",
+  "column_break_gtwt",
+  "health_insurance_expiry",
+  "health_insurance_document",
+  "column_break_gagn",
+  "iloe_expiry",
+  "iloe_document"
+ ],
+ "fields": [
+  {
+   "fieldname": "personal_details_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Details"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "primary_address.email_id",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Email",
+   "read_only_depends_on": "eval:doc.primary_address"
+  },
+  {
+   "fetch_from": "primary_address.custom_phone_number",
+   "fieldname": "phone",
+   "fieldtype": "Phone",
+   "in_filter": 1,
+   "label": "Phone",
+   "read_only_depends_on": "eval:doc.primary_address"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_filter": 1,
+   "label": "Enabled?"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "default": "Not Applicable",
+   "depends_on": "eval:doc.has_visa",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Visa Status",
+   "mandatory_depends_on": "eval:doc.has_visa",
+   "options": "In-Progress\nActive\nExpired\nCancelled\nNot Applicable"
+  },
+  {
+   "fieldname": "column_break_gohy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "bold": 1,
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Full Name",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "country_of_birth",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "label": "Country of Birth",
+   "options": "Country"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Nationality",
+   "options": "Country"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "responsible_person",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "label": "Responsible Person",
+   "options": "Employee"
+  },
+  {
+   "default": "1",
+   "fieldname": "need_expiry_notifications",
+   "fieldtype": "Check",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Need Expiry Notifications?"
+  },
+  {
+   "fieldname": "documents_tab",
+   "fieldtype": "Tab Break",
+   "label": "Documents"
+  },
+  {
+   "fieldname": "passport_number",
+   "fieldtype": "Data",
+   "label": "Passport Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_nirp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact_details_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Details"
+  },
+  {
+   "fieldname": "links_section",
+   "fieldtype": "Section Break",
+   "label": "Links"
+  },
+  {
+   "fieldname": "user_id",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "label": "User ID",
+   "options": "User"
+  },
+  {
+   "fieldname": "primary_address",
+   "fieldtype": "Link",
+   "label": "Primary Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "secondary_address",
+   "fieldtype": "Link",
+   "label": "Secondary Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "BSI-.YY.####",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "parent_type",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Parent Type",
+   "options": "Linked Individual\nCustomer"
+  },
+  {
+   "fieldname": "column_break_gpqt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_htbd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "passport_issue_date",
+   "fieldtype": "Date",
+   "label": "Passport Issue Date"
+  },
+  {
+   "fieldname": "passport_expiry_date",
+   "fieldtype": "Date",
+   "label": "Passport Expiry Date"
+  },
+  {
+   "fieldname": "passport_document",
+   "fieldtype": "Attach",
+   "label": "Passport"
+  },
+  {
+   "fieldname": "column_break_qmgl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "visa_issue_date",
+   "fieldtype": "Date",
+   "label": "Visa Issue Date"
+  },
+  {
+   "fieldname": "visa_expiry_date",
+   "fieldtype": "Date",
+   "label": "Visa Expiry Date"
+  },
+  {
+   "fieldname": "residency_visa_document",
+   "fieldtype": "Attach",
+   "label": "Residency Visa"
+  },
+  {
+   "fieldname": "column_break_rdyy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "emirates_id_number",
+   "fieldtype": "Data",
+   "label": "Emirates ID Number"
+  },
+  {
+   "fieldname": "emirates_id_document",
+   "fieldtype": "Attach",
+   "label": "Emirates ID"
+  },
+  {
+   "fieldname": "emirates_id_issue_date",
+   "fieldtype": "Date",
+   "label": "Emirates ID Issue Date"
+  },
+  {
+   "fieldname": "emirates_id_expiry_date",
+   "fieldtype": "Date",
+   "label": "Emirates ID Expiry Date"
+  },
+  {
+   "fieldname": "labour_contract_expiry",
+   "fieldtype": "Date",
+   "label": "Labour Contract Expiry"
+  },
+  {
+   "fieldname": "labour_contract_document",
+   "fieldtype": "Attach",
+   "label": "Labour Contract"
+  },
+  {
+   "fieldname": "column_break_gtwt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "health_insurance_expiry",
+   "fieldtype": "Date",
+   "label": "Health Insurance Expiry"
+  },
+  {
+   "fieldname": "health_insurance_document",
+   "fieldtype": "Attach",
+   "label": "Health Insurance"
+  },
+  {
+   "fieldname": "column_break_gagn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "iloe_expiry",
+   "fieldtype": "Date",
+   "label": "ILOE Expiry"
+  },
+  {
+   "fieldname": "iloe_document",
+   "fieldtype": "Attach",
+   "label": "ILOE"
+  },
+  {
+   "depends_on": "eval:doc.visa_type==\"Employee\"",
+   "fieldname": "employee_section",
+   "fieldtype": "Section Break",
+   "label": "Employment Related Documents"
+  },
+  {
+   "fieldname": "section_break_xcnc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "dependents",
+   "fieldtype": "Table",
+   "label": "Dependents",
+   "options": "Dependents of Individual"
+  },
+  {
+   "fieldname": "owned_companies",
+   "fieldtype": "Table",
+   "label": "Owned Companies",
+   "options": "Companies of Individual",
+   "read_only": 1
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "default": "0",
+   "fieldname": "has_visa",
+   "fieldtype": "Check",
+   "in_filter": 1,
+   "label": "Has Visa?"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "depends_on": "eval:doc.has_visa",
+   "fieldname": "visa_type",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Visa Type",
+   "mandatory_depends_on": "eval:doc.has_visa",
+   "options": "Partner\nEmployee\nDependent\nGolden Visa"
+  },
+  {
+   "depends_on": "eval:doc.has_visa",
+   "fieldname": "visa_parent",
+   "fieldtype": "Dynamic Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Visa Parent",
+   "mandatory_depends_on": "eval:doc.has_visa",
+   "options": "parent_type"
+  },
+  {
+   "depends_on": "eval:doc.has_visa",
+   "fieldname": "column_break_qqsw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.visa_type == \"Dependent\"",
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "mandatory_depends_on": "eval:doc.visa_type == \"Dependent\""
+  },
+  {
+   "depends_on": "eval:doc.visa_type == \"Dependent\"",
+   "fieldname": "relation",
+   "fieldtype": "Select",
+   "label": "Relation",
+   "mandatory_depends_on": "eval:doc.visa_type == \"Dependent\"",
+   "options": "Spouse\nSon\nDaughter\nFather\nMother\nFather-in-law\nMother-in-law"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-19 13:16:07.416989",
+ "modified_by": "Administrator",
+ "module": "BS Customers",
+ "name": "Linked Individual",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "email,phone",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Green",
+   "title": "Active"
+  },
+  {
+   "color": "Orange",
+   "title": "Expired"
+  },
+  {
+   "color": "Blue",
+   "title": "In-Progress"
+  },
+  {
+   "color": "Red",
+   "title": "Cancelled"
+  }
+ ],
+ "title_field": "full_name"
+}

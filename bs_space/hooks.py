@@ -4,6 +4,10 @@ app_publisher = "Best Solution®"
 app_description = "Best Solution® ERP Platform"
 app_email = "marketing@best-solution.ae"
 app_license = "bsl-1.0"
+app_logo_url = "/assets/erpnext/images/bs-logo.png"
+
+email_brand_image = "/assets/erpnext/images/bs-logo.png"
+
 
 # Apps
 # ------------------
@@ -16,16 +20,32 @@ app_license = "bsl-1.0"
 # 		"name": "bs_space",
 # 		"logo": "/assets/bs_space/logo.png",
 # 		"title": "BS Space",
-# 		"route": "/bs_space",
+# 		"route": "/app/home",
 # 		"has_permission": "bs_space.api.permission.has_app_permission"
 # 	}
 # ]
+
+# website
+webform_list_context = "erpnext.controllers.website_list_for_contact.get_webform_list_context"
+
+calendars = ["Task", "Work Order", "Sales Order", "Holiday List", "ToDo"]
+
+website_generators = ["BOM", "Sales Partner"]
+
+website_context = {
+	"favicon": "/assets/bs_space/images/bs-favicon.webp",
+	"splash_image": "/assets/bs_space/images/bs-logo.png",
+    "footer_powered": "All rights reserved. Best Solution® Business Setup Consultancy © 2025"
+}
+
+# Fixtures
+fixtures = ["Custom Field", "Property Setter"]
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/bs_space/css/bs_space.css"
+app_include_css = "/assets/bs_space/css/bs_space.css?v=1"
 # app_include_js = "/assets/bs_space/js/bs_space.js"
 
 # include js, css files in header of web template
@@ -137,6 +157,40 @@ app_license = "bsl-1.0"
 # ---------------
 # Hook on document methods and events
 
+doc_events = {
+    "Item": {
+        "before_validate": "bs_space.bs_space.item_hooks.set_item_code"
+    },
+
+    "Customer": {
+        "before_insert": "bs_space.customer.before_insert",
+        
+        "validate": [
+            "bs_space.customer.validate",
+            "bs_space.customer.validate_shareholding_total",
+            "bs_space.customer.validate_parent_company",
+            "bs_space.customer.validate_license_notification_setting",
+            "bs_space.customer.validate_legal_authorities",
+            "bs_space.customer.validate_shareholders"
+        ],
+        "before_save": [
+            "bs_space.customer.before_save",
+            "bs_space.customer.update_remaining_quota",
+            "bs_space.customer.update_license_status",
+            "bs_space.customer.sync_client_shareholders",
+            "bs_space.customer.sync_channel_partner_sub_company"
+        ]
+    },
+
+    "Linked Individual": {
+        "validate":   "bs_space.bs_customers.doctype.linked_individual.linked_individual.validate_linked_individual",
+        # Fire aggregator on both signals; it will guard against double-run
+        "on_update":  "bs_space.bs_customers.doctype.linked_individual.linked_individual.after_save_linked_individual",
+        "after_save": "bs_space.bs_customers.doctype.linked_individual.linked_individual.after_save_linked_individual",
+        "on_trash":   "bs_space.bs_customers.doctype.linked_individual.linked_individual.cleanup_dependent_rows_on_trash",
+    }
+}
+
 # doc_events = {
 # 	"*": {
 # 		"on_update": "method",
@@ -148,23 +202,29 @@ app_license = "bsl-1.0"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"bs_space.tasks.all"
-# 	],
-# 	"daily": [
-# 		"bs_space.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"bs_space.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"bs_space.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"bs_space.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	# "all": [
+	# 	"bs_space.tasks.all"
+	# ],
+
+    "daily": [
+        {"doctype": "Customer", "event": "daily", "method": "update_all_license_statuses"},
+        {"doctype": "Linked Individual", "event": "daily", "method": "send_expiry_notifications"}
+    ],
+    "weekly": [
+        {"doctype": "Customer", "event": "weekly", "method": "update_all_tax_statuses"},
+        {"doctype": "Customer", "event": "weekly", "method": "update_all_vat_statuses"}
+    ],
+	# "hourly": [
+	# 	"bs_space.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"bs_space.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"bs_space.tasks.monthly"
+	# ],
+}
 
 # Testing
 # -------
